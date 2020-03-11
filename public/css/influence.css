@@ -1,0 +1,68 @@
+body{
+  padding: 0px;
+  margin: 0px;
+  background: url('./images/Background1.jpg') no-repeat;
+  height:100%;
+  background-attachment: fixed; 
+    background-position: center;
+  background-size: cover;
+  font-family:"Arial Narrow Bold", sans-serif;
+}
+
+li .active{
+  background-color: #111;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  }
+  
+  .btn {
+  border: 2px solid whitesmoke;
+  color: whitesmoke;
+  padding: 8px 20px;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 15px;
+  font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  }
+.buttonBar input[type="submit"]
+{
+  outline: none;
+  height: 50px;
+  width: 100%;
+  background: #333;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 50px;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+.buttonBar input[type="submit"]:hover
+{
+  cursor: pointer;
+  background: #c0c0c0;
+  color: #000;
+}
+
+.buttonBar input[type="submit"]:active
+{
+  cursor: pointer;
+  background: #f0f8ff;
+  color: #000;
+}
+
+.create{
+  text-align: center;
+  color:#fff;
+}
