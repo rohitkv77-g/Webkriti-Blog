@@ -1,0 +1,28 @@
+{
+  "name": "webkriti-blog",
+  "version": "1.0.0",
+  "description": "Webkriti Blog Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohitkv77-g/Webkriti-Blog.git"
+  },
+  "author": "Rohit Kumar Verma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohitkv77-g/Webkriti-Blog/issues"
+  },
+  "homepage": "https://github.com/rohitkv77-g/Webkriti-Blog#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
