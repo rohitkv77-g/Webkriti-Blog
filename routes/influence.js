@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 // router.get('/', (req, res)=>{
-//     res.sendFile(path.dirname(__dirname)+"/html/homePage.html");
+//     res.sendFile(path.dirname(__dirname)+"/html/influence.html");
 // });
 
 module.exports = router;

@@ -1,0 +1,133 @@
+
+ #quote{
+  background-color: white;
+  border-width: 1px;
+  border-color: brown;
+  border-style: dotted;
+  border-right: none;
+  border-left: none;
+  padding:5px 30px;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 100px;
+  font-style: italic;
+  color: crimson;
+}
+
+.athr{
+  text-align: right;
+  color: chocolate;
+  font-style: italic;
+  /* font-weight: bold; */
+
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.new{
+  margin-right: 10px;
+  border: none;
+  background-color: white;
+  font-style: italic;
+  color: rgba(7, 4, 172, 0.795);
+  font-size: 20px;
+  font-family: 'Times New Roman';
+}
+
+.popular{
+  background-color: white;
+  padding-left: 20px;
+  font-style: italic;
+  border: none;
+  color: rgba(7, 4, 172, 0.795);
+  font-size: 20px;
+  font-family: 'Times New Roman';
+  border-left: rgba(7, 4, 172, 0.795) solid;
+}
+/* 
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+} */
+
+.flex-container2{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border:1px dotted #008000;
+  border-radius: 50px;
+  padding: 4%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.blogDiv1{
+  padding: 0px;
+margin: 0px;
+height:100%;
+background-attachment: fixed; 
+  background-position: center;
+  background-size: cover; 
+  margin-right: 10px;
+}
+
+.blogDiv3{
+  margin-left: 10px;
+  width: 50%;
+  height: 200%;
+  align-self: flex-end;
+}
+
+.blogDiv3Div1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content1{
+  font-family: Times New Roman; 
+}
+
+.authorImage{
+  margin-right: 20px;
+}
+.authorName{
+  color: rebeccapurple;
+}
+@media screen and (max-width: 640px){
+  #quote{
+  margin-left: 0%;
+  margin-right: 0%;
+  }
+  .athr{
+      width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px){
+  .flex-container2{
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+      border-left: none;
+      border-right: none;
+      border-radius: 0px;
+      border-top: none;
+      border-bottom: 1px solid darkgreen;
+  }
+}
+

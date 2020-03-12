@@ -1,0 +1,132 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	background: url('./images/Background1.jpg') no-repeat;
+	height:100%;
+	background-attachment: fixed; 
+    background-position: center;
+	background-size: cover;
+	font-family: 'Times New Roman';
+	font-style: italic;
+}
+.radio{
+	font-size: 16px;
+	font-family: 'Times New Roman';
+	font-style: italic;
+}
+.SignUp{
+	width: 30%;
+	min-width: 350px;
+	background: black;
+	color: #fff;
+	top:40%;
+	left:50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 40px 30px;
+	border-radius:20px;
+	margin-top: 200px;
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+
+	/* Below code is for feathuring effect */
+	box-shadow:  0 0 20px  rgba(255, 254, 254, 0.6);
+	-moz-box-shadow: 0 0 20px  rgba(255, 254, 254, 0.6);
+	-webkit-box-shadow: 0 0 20px  rgba(255, 254, 254, 0.6);
+	-o-box-shadow: 0 0 20px  rgba(255, 254, 254, 0.6);
+} 
+
+#user{
+	width: 100px;
+	height:100px;
+	border-radius:50%;
+	position:absolute;
+	top: -70px;
+	margin-top:10px;
+	align-self: center;
+}
+h1{
+	margin: 10px;
+	text-align: center;
+	font-size: 28px;
+	font-family: 'Times New Roman';
+	font-style: italic;
+}
+.SignUp input{
+	margin-bottom: 20px;
+}
+.SignUp input[type="text"],input[type="password"],input[type="email"]
+{
+	font-family: 'Times New Roman';
+	font-style: italic;
+	border: none;
+	border-bottom: .5px solid brown;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #f4e194;
+	font-size: 18px;
+	width: 100%;
+}
+.SignUp input[type="file"]
+{
+	border-style: none;
+	font-family: 'Times New Roman';
+	font-style: italic;
+	display: flex;
+	flex-direction: row;
+	
+}
+.upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+  }
+  
+  .btn {
+	border: 2px solid whitesmoke;
+	color: whitesmoke;
+	padding: 8px 20px;
+	border-radius: 8px;
+	background: transparent;
+	font-size: 15px;
+	font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+	font-size: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+  }
+.SignUp input[type="submit"]
+{
+	
+	font-family: 'Times New Roman';
+	font-style: italic;
+	outline: none;
+	height: 50px;
+	width: 100%;
+	background: #fb2525;
+	color: #fff;
+	font-size: 24px;
+	border-radius: 50px;
+	margin-bottom: 0px;
+	margin-top: 8px;
+}
+.SignUp input[type="submit"]:hover
+{
+	cursor: pointer;
+	background: #dac400;
+	color: #000;
+}
+
+.SignUp input[type="submit"]:active
+{
+	cursor: pointer;
+	background: #6fee1a;
+	color: #000;
+}
