@@ -7,6 +7,11 @@ function loggedIn(){
     // return 0; - user logged out
 }
 
+router.get("/influence",(req,res)=>{
+    res.render("influence.ejs",{});
+});
+
+
 router.get('/', (req, res)=>{
     // res.sendFile(path.dirname(__dirname)+"/html/homePage.html");
     res.render("home.ejs",{});

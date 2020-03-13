@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // const a=require(__dirname+"/routes/influence.js");
 
+
 app.use("/", require(__dirname+"/routes/home.js"));
 app.use("/signup", require(__dirname+"/routes/signUp.js"));
 app.use("/signin", require(__dirname+"/routes/signIn.js"));
