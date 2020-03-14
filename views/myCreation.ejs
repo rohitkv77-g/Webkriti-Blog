@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Creation</title>
-</head>
-<body>
-    
-    <header>
+<% if(1){  %>
+    <%- include("start") -%>
+    <%- include("navigationAfter") -%>
+<%    }else { %>
+<%-    include("start") -%>
+    <%- include("navigationBefore")   -%>
+    <% } %>
 
-        <div class="nav">
-            <ul class="topnav">
-            <li><a href="./homePage.html">Logo</a></li>
-            <li><a href="./homePage.html">CuriousCat</a></li>
-            <li style="float:right"><div class="dropdown"><a href="javascript:void(0)" class="dropbtn">UserDP</a>
-            
-            <div class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Interest</a>
-                <a href="#">Author</a>
-                <a href="#">Articles</a>
-                <a href="#">Settings</a>
-                <a href="#">Log Out</a>
-            </div>
-        </div></li>
-
-            <li style="float:right"><div><a href="./search.html">Search</a></div></li>
-            <li style="float:right"><div><a href="./about.html">About Us</a></div></li>
-            <li style="float:right"><div><a href="./influence.html">Influence!</a></div></li>
-            <li style="float:right"><div><a href="./notifications.html">Notifications</a></div></li>
-        </ul>
-            
-        </div> 
-    </header>
-
-    <link rel="stylesheet" type="text/css" href="../public/css/myCreation.css">
-
+    <link rel="stylesheet" type="text/css" href="./css/myCreation.css">
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
     <div class="myCreation"><h1 style="font-family: 'Times New Roman', Times, serif;">MY CREATIONS</h1><hr></div>
+
 
     <div class="flex-container2">   
         <div class="blogDiv1"><img src="./images/1.jpeg" width="100%" height="100%"   alt="blogPhoto" height="42" width="42">
@@ -45,7 +18,8 @@
         <div class="content1">
             <em>Title</em>
             <p>discription Lorem ipsum dolor sit amet consectetus.discription Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibus.</p>
-            <button>Read More</button>
+            <button class="btn">Explore</button>
+            <button class="btn">Delete</button>
         </div>
 
         <!-- <div class="">

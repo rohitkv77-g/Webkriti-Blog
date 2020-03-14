@@ -1,0 +1,10 @@
+.btn{
+    background: transparent;
+    /* border: none; */
+    border-radius: 10px;
+    background-color: grey;
+    color: black;
+    border: cornflowerblue;
+    outline: none;
+}
+
