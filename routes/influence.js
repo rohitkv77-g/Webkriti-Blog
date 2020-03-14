@@ -7,4 +7,12 @@ const router = express.Router();
 //     res.sendFile(path.dirname(__dirname)+"/html/influence.html");
 // });
 
+router.get("/",(req,res)=>{
+    res.render("influence.ejs",{});
+})
+
+router.post("/post",(req,res)=>{
+    res.redirect("/mycreation",);
+});
+
 module.exports = router;
