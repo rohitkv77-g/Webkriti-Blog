@@ -24,4 +24,4 @@ app.use("/influence", require(__dirname+"/routes/influence.js"));
 
 app.listen(process.env.PORT, ()=>{
     console.log("Server Started at PORT "+process.env.PORT);
-});
+}); 
