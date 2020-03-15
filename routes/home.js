@@ -11,6 +11,10 @@ router.get("/influence",(req,res)=>{
     res.render("influence.ejs",{});
 });
 
+router.get("/myCreation",(req,res)=>{
+    res.render("myCreation.ejs",{});
+});
+
 
 router.get('/', (req, res)=>{
     // res.sendFile(path.dirname(__dirname)+"/html/homePage.html");
