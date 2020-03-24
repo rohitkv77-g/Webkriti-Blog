@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require("path");
 const router = express.Router();
+const mySqlConnection = require("../database/db")
 
 function loggedIn(){
     // return 1; - user logged in
@@ -15,11 +16,37 @@ function loggedIn(){
 //     res.render("myCreation.ejs",{});
 // });
 
+router.get("/", (req, res) => {
+      mySqlConnection.query(
+        "SELECT * FROM blogs",
+        (err, rows) => {
+          if (err) {res.status(500).send(err)}
+          else {
+            res.status = 200
+            res.render('home', {blogs : rows})
+          }
+        },
+      )
+  });
 
 router.get('/', (req, res)=>{
     // res.sendFile(path.dirname(__dirname)+"/html/homePage.html");
     res.render("home.ejs",{});
 });
+
+// router.get("/blogs/:blogId", function(req, res){
+//     // const requestedTitle = _.lowerCase(req.params.blogTitle);
+    
+//         // const storedTitle = _.lowerCase(blogs.title);
+//         for(var i=0;i<blogs.length;i++){
+//         if (blogs.id === req.params.blogId) {
+//         res.render("explore", {
+//             title: blogs.title,
+//             content: blogs.content
+//         });
+//         }
+//         }
+//     });
 
 router.get("/aboutus",(req,res)=>{
     res.render(__dirname+"/html/aboutUs.html");

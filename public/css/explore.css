@@ -1,0 +1,60 @@
+.heading{
+    text-align-last: center;
+    color: darkblue;
+    stroke: darkcyan;
+    text-decoration: darkblue underline;
+}
+img{
+    float: left;
+    padding-right: 20px;
+}
+.flex-container{
+    width: 80%;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    border:1px dotted #008000;
+    border-radius: 50px;
+    padding: 4%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    margin-bottom: 100px;
+  }
+.text{
+    font-family: 'Times New Roman';
+    font-style: italic;
+}
+/* .editButton{
+    all: unset;
+    outline: none;
+    float: right;
+    background-image: url("./images/editButton.jpg");
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+.editButton:active{
+    outline: solid black;
+} */
+
+.editButton{
+    all: unset;
+    border: none;
+    float: right;
+    transition: all ease-in-out 0.2s;
+    background-image: url("./images/editButton.jpg");
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+.editButton:active{
+    border: 1px solid #888;
+}
