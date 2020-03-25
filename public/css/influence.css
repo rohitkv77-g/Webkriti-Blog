@@ -1,12 +1,13 @@
 body{
   padding: 0px;
   margin: 0px;
-  background: url('./images/Background1.jpg') no-repeat;
+  background: url('./Background1.jpg') no-repeat;
   height:100%;
   background-attachment: fixed; 
     background-position: center;
   background-size: cover;
   font-family:"Arial Narrow Bold", sans-serif;
+  box-sizing: border-box;
 }
 
 li .active{
@@ -65,4 +66,53 @@ li .active{
 .create{
   text-align: center;
   color:#fff;
+}
+
+.create h1{
+  border-right: .17em solid whitesmoke; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  overflow: hidden;
+  transition: all 2s ease;
+  animation: 
+    typing 13s steps(100, end),
+    blinking-cursor .5s step-end infinite;
+}
+/* The typing effect */
+      @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+      }
+      /* The typewriter cursor effect */
+      @keyframes blinking-cursor {
+      from, to { border-color: transparent }
+      100% { border-color: whitesmoke; }
+      }
+
+.blog{
+  width:80%;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color:white;
+}
+.blog label, textarea,input{
+  border:none;
+  outline:none;
+  background:transparent;
+  color:white;
+  font-size:28px;
+}
+.blog textarea{
+  overflow: auto;
+  resize: none;
+}
+#categories{
+  background:transparent;
+  color:white;
+  font-size:22px;
+}
+#categories option{
+  background-color: black;
 }
