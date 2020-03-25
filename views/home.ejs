@@ -17,8 +17,10 @@
         <div class="content1">
                 <em><%= blogs[i].title%></em>
                 <p><%=blogs[i].blogContent.substring(0, 500) + " ..."%></p>
-                <button>Read More</button>
-                <div style="text-align: right;"><em class="authorName" ><%= "~" + blogs[i].authorName%></em></div>
+                <a href="/blogs/<%=blogs[i].id%>"><button>Read More</button></a>
+                <div style="text-align: right;">
+                        <em class="authorName" ><%= "~" + blogs[i].authorName%></em>
+                </div>
         </div>
 </div>
 <%}%>
