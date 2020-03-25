@@ -33,26 +33,57 @@ router.get("/", (req, res) => {
 
 
 router.get("/blogs/:blogId", function(req, res){
-        mySqlConnection.query(
-        "SELECT * FROM blogs",
+
+    // better solution with time complexity O(1)
+
+    mySqlConnection.query(
+        "SELECT * from blogs where id = ?", [req.params.blogId],
         (err, rows) => {
             if (err) res.status(500).send(err)
+            else if(rows.length == 0) res.send("blog not found")
             else{
                 // console.log("in else block " + req.params.blogId)
-                for(var j=0;j<rows.length;j++){
-                    if (rows[j].id == req.params.blogId){
-                        console.log(rows[j])
+                // for(var j=0;j<rows.length;j++){
+                    // if (rows[j].id == req.params.blogId){
+                        // console.log(rows[0])
                         res.status(200)
                         res.render("explore", {
-                            title: rows[j].title,
-                            content: rows[j].blogContent
-                        });
-                    }
+                            title: rows[0].title,
+                            content: rows[0].blogContent
+                        })
+                        // res.send("hello");
+                    // }
                 
-                }
-            }    
+                // }
+            }  
         },
         )
+
+
+    
+
+        // mySqlConnection.query(
+        // "SELECT * FROM blogs",[],
+        // (err, rows) => {
+        //     if (err) res.status(500).send(err)
+        //     else if(rows.length == 0) res.send("blog not found")
+        //     else{
+        //         console.log("in else block " + req.params.blogId)
+        //         for(var j=0;j<rows.length;j++){
+        //             if (rows[j].id == req.params.blogId){
+        //                 // console.log(rows[j])
+        //                 res.status(200)
+        //                 res.render("explore", {
+        //                     title: rows[j].title,
+        //                     content: rows[j].blogContent
+        //                 })
+        //                 break;
+        //             }
+                
+        //         }
+        //     }    
+        // },
+        // )
 });
 
 
