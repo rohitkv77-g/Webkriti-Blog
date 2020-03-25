@@ -38,18 +38,19 @@ router.get("/blogs/:blogId", function(req, res){
         (err, rows) => {
             if (err) res.status(500).send(err)
             else{
-                console.log("in else block")
-                res.statusCode = 200
+                // console.log("in else block " + req.params.blogId)
                 for(var j=0;j<rows.length;j++){
-                    if (rows[j].id === req.params.blogId){
-                        console.log(row[j])
-                        // res.render("explore", {
-                        //     title: rows[j].title,
-                        //     content: rows[j].content
-                        // })
+                    if (rows[j].id == req.params.blogId){
+                        console.log(rows[j])
+                        res.status(200)
+                        res.render("explore", {
+                            title: rows[j].title,
+                            content: rows[j].blogContent
+                        });
                     }
+                
                 }
-            }
+            }    
         },
         )
 });
