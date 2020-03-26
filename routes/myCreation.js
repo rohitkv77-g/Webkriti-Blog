@@ -29,5 +29,39 @@ router.get("/", function(req, res){
     }      
 });
 
+router.get("/blogs/delete/:blogId", (req, res) => {
+    // console.log("debugTest1");
+    if (req.session.user) {
+      mySqlConnection.query(
+        "SELECT * FROM blogs WHERE id = ? AND authorName = ?",
+        [req.params.blogId, req.session.user],
+        (err, rows) => {
+          if (err) res.status(500).send(err)
+          else if (!rows.length) {
+            // console.log("No row");
+            res.status = 401;
+            res.redirect('/myCreation');
+          }
+          else {
+            mySqlConnection.query(
+              "DELETE FROM blogs WHERE id = ?",
+              [req.params.blogId],
+              (err) => {
+                if (err) res.status(500).send(err)
+                else {
+                    // console.log("row found");
+                  res.status = 200;
+                  res.redirect('/myCreation');
+                }
+              },
+            )
+          }
+        },
+      )
+    } else {
+        res.redirect("/signin?login+first");
+    }
+  })
+
 
 module.exports = router;
