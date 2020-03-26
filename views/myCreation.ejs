@@ -10,61 +10,21 @@
     <link rel="stylesheet" type="text/css" href="./css/common.css">
     <div class="myCreation"><h1 style="font-family: 'Times New Roman', Times, serif;">MY CREATIONS</h1><hr></div>
 
-
-    <div class="flex-container2">   
-        <div class="blogDiv1"><img src="./images/1.jpeg" width="100%" height="100%"   alt="blogPhoto" height="42" width="42">
-        </div>
-
-        <div class="content1">
-            <em>Title</em>
-            <p>discription Lorem ipsum dolor sit amet consectetus.discription Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibus.</p>
-            <button class="btn">Explore</button>
-            <button class="btn">Delete</button>
-        </div>
-
-        <!-- <div class="">
-            <em class="authorName">Author name</em>
-            <button class="follow">Follow</button>
-        </div>
-        <div class="authorImage"><img src="author image" alt="author image"></div> -->
-
-        <div class="blogDiv3">
-            <img src="./images/user-icon.png" alt="author image" width="100%" height="100%">
-            <div class="blogDiv3Div1">
-                <div><em class="authorName">Author name</em></div>
-                <div><button class="follow">Follow</button></div>
+    <% if(blogs.length != 0){  %>
+        <%for(var i=0;i<blogs.length;i++){%>
+            <div class="flex-container2">   
+                <div class="content1">
+                    <em><%= blogs[i].title%></em>
+                        <p><%=blogs[i].blogContent.substring(0, 500) + " ..."%></p>
+                    <button class="btn">Explore</button>
+                    <button class="btn">Delete</button>
+                    <div style="text-align: right;">
+                        <em class="authorName" ><%= "~" + blogs[i].authorName%></em>
+                    </div>
+                </div>
             </div>
-        </div>
-
-    </div>
-
-    <div class="flex-container2">   
-        <div class="blogDiv1"><img src="./images/1.jpeg" width="100%" height="100%"   alt="blogPhoto" height="42" width="42">
-        </div>
-
-        <div class="content1">
-            <em>Title</em>
-            <p>discription Lorem ipsum dolor sit amet consectetus.discription Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibusng elit. Nulla libero neque quam sit laudantium maiores, minus quae illum et, maxime nobis velit blanditiis quidem ad, accusamus consequatur voluptatum. Magni, voluptatibus.</p>
-            <button>Read More</button>
-        </div>
-
-        <!-- <div class="">
-            <em class="authorName">Author name</em>
-            <button class="follow">Follow</button>
-        </div>
-        <div class="authorImage"><img src="author image" alt="author image"></div> -->
-
-        <div class="blogDiv3">
-            <img src="./images/user-icon.png" alt="author image" width="100%" height="100%">
-            <div class="blogDiv3Div1">
-                <div><em class="authorName">Author name</em></div>
-                <div><button class="follow">Follow</button></div>
-            </div>
-        </div>
-
-    </div>
-
+        <%}%>
+    <% } %>
     
-
 </body>
 </html>
