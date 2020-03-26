@@ -4,10 +4,18 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mysql = require("mysql");
 const bcrypt = require("bcrypt");
+const session = require("express-session");
 
 const app = express();
 // const PORT=3000;
 // Now in .env file
+
+app.use(session({
+    secret: process.env.SESSION_PASS,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 3600000 }
+}));  
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");

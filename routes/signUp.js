@@ -2,6 +2,7 @@ const express = require('express');
 const path = require("path");
 const router = express.Router();
 const multer = require("multer");
+const bcrypt = require("bcrypt");
 
 const mySqlConnection = require(path.dirname(__dirname)+"/database/db.js");
 
@@ -55,12 +56,14 @@ router.post("/register", upload.single("myfile"), (req,res)=>{
                     res.send();
                     // res.redirect("/signup");
                 }else{
-                    var sql = "INSERT INTO users (f_name, l_name, user_name, email, pass, gender, photo) VALUES ("+"\""+f_name+"\",\""+l_name+"\",\""+u_name+"\",\""+email+"\",\""+pass+"\",\""+gender+"\",\""+p_pic+"\");";
+                    const hash=bcrypt.hashSync(pass,Number(process.env.SALT_ROUND));
+                    var sql = "INSERT INTO users (f_name, l_name, user_name, email, pass, gender, photo) VALUES ("+"\""+f_name+"\",\""+l_name+"\",\""+u_name+"\",\""+email+"\",\""+hash+"\",\""+gender+"\",\""+p_pic+"\");";
                     mySqlConnection.query(sql,(err,rows)=>{
                         if(err) console.log(err);
                         else{
+                            req.session.user=u_name;
                             console.log("Inserted");
-                            res.redirect("/signup");
+                            res.redirect("/");
                         }
                     });
                 }

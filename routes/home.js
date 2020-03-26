@@ -18,6 +18,16 @@ function loggedIn(){
 // });
 
 
+router.get("/logout",(req,res)=>{
+    if (req.session.user) {
+        req.session.destroy(() => {
+          res.status(200).send("logout success")
+        })
+      } else {
+        res.status(400).send("you are not logged in")
+      }
+})
+
 router.get("/", (req, res) => {
       mySqlConnection.query(
         "SELECT * FROM blogs",
