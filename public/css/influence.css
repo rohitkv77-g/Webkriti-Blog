@@ -104,10 +104,10 @@ li .active{
   color:white;
   font-size:28px;
 }
-.blog textarea{
-  overflow: auto;
-  resize: none;
-}
+/* .blog textarea{ */
+  /* overflow: auto; */
+  /* resize: none; */
+/* } */
 #categories{
   background:transparent;
   color:white;
