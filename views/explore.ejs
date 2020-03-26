@@ -11,6 +11,9 @@
     <div class="flex-container">
     <h1 class="heading"><%=title%></h1><br>
     <p class="text"><%=content%></p>
+    <% if(user){  %>
+    <button class="editButton" title="Edit"></button>
+    <% } %>
     </div>
 </body>
 </html>

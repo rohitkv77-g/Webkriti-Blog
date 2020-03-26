@@ -47,7 +47,7 @@ img{
     border: none;
     float: right;
     transition: all ease-in-out 0.2s;
-    background-image: url("./images/editButton.jpg");
+    background-image: url("../images/editButton.jpg");
     cursor: pointer;
     height: 50px;
     width: 50px;

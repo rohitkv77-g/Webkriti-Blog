@@ -52,6 +52,9 @@ router.get("/blogs/:blogId", function(req, res){
             if (err) res.status(500).send(err)
             else if(rows.length == 0) res.send("blog not found")
             else{
+                var blog_owner;
+                if(req.session.user == rows[0].authorName)
+                blog_owner = req.session.user;
                 // console.log("in else block " + req.params.blogId)
                 // for(var j=0;j<rows.length;j++){
                     // if (rows[j].id == req.params.blogId){
@@ -59,7 +62,8 @@ router.get("/blogs/:blogId", function(req, res){
                         res.status(200)
                         res.render("explore", {
                             title: rows[0].title,
-                            content: rows[0].blogContent
+                            content: rows[0].blogContent,
+                            user: blog_owner
                         })
                         // res.send("hello");
                     // }
