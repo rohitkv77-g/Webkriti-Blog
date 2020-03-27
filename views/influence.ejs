@@ -11,19 +11,37 @@
 
     <div class="create">
         <br>
-        <h1>Let's write to influence!</h1>
+        <% if(toUpdate){  %>
+            <h1>Go Ahead Update Your Blog</h1>
+        <%    }else { %>
+            <h1>Let's write to influence!</h1>
+        <% } %>
         <hr>
     </div>
 
-    <form method="post" action="/influence/blogPost" id="blog">
-    
+    <% if(toUpdate){  %>
+        <form method="post" action="/myCreation/update/<%= blogId%>" id="blog">
+    <%    }else { %>
+        <form method="post" action="/influence/blogPost" id="blog">
+    <% } %>
+
     <div class="blog">
     <label for="blogTitle"><b>Title:</b></label>
-    <input type="text" id="blogTitle" name="blogTitle" placeholder="Title of your Blog" required><br><br><br>
+
+    <% if(toUpdate){  %>
+        <input type="text" id="blogTitle" name="blogTitle" placeholder=<%= title%> required>
+    <%    }else { %>
+        <input type="text" id="blogTitle" name="blogTitle" placeholder="Title of your Blog" required>
+    <% } %>
+
+    <br><br><br>
     
     <label for="categories"><b>Choose a Blog Category:</b></label>
     
-    <select id="categories" name="category" required>
+    <select id="categories" name="category" required >
+    <% if(toUpdate){  %>
+        <option value="" disabled selected>Previous Category: <%= category%></option>
+    <% } %>
     <option value="pet">Pet</option>
     <option value="food">Food</option>
     <option value="travel">Travel</option>
@@ -35,8 +53,13 @@
     </select>
     <br><br><br>
     
-    <textarea name="blogContent"  placeholder="What's in your mind..?" rows="5" cols="50" required></textarea>
+    <% if(toUpdate){  %>
+        <textarea name="blogContent" rows="5" cols="50" required><%= blogContent%></textarea>
   	<br><br>
+    <%    }else { %>
+        <textarea name="blogContent"  placeholder="What's in your mind..?" rows="5" cols="50" required></textarea>
+  	<br><br>
+    <% } %>
 
     <div class="buttonBar">
         <div class="upload-btn-wrapper">

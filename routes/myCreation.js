@@ -66,19 +66,97 @@ router.get("/blogs/delete/:blogId", (req, res) => {
 router.get("/blogEditProposal/:blogId", (req, res) => {
   if (req.session.user) {
     mySqlConnection.query(
-      "SELECT * FROM blogs WHERE id = ? AND authorName = ?",
-      [req.params.blogId,req.session.user],
-      (err) => {
-        if (err) res.status(500).send(err)
-        else {
-          res.status = 200;
-          res.render("influence.ejs",{});
+      "SELECT * from blogs where id = ?", [req.params.blogId],
+      (err, rows) => {
+        if(err) {
+          res.send(err)
+        }
+        else{
+          if(rows.length == 0)
+          res.send("No such blog exits")
+          else{
+            res.render("influence",{toUpdate : 1, title : rows[0].title, category : rows[0].category, blogContent : rows[0].blogContent, blogId : rows[0].id})
+          }
         }
       },
     )
-    
+    // mySqlConnection.query(
+    //   "SELECT * from blogs where id = ?", [req.params.blogId],
+    //   (err, rows) => {
+    //     if (err) {
+    //       console.log("error")
+    //       res.status(500).send(err)
+    //    }
+    //     else if(rows.length == 0){
+    //        console.log("no row found")
+    //       //  console.log(req.session.user + "  " + rows[0].authorname)
+    //     }
+    //     else {
+    //       var useInfluenceToUpdate = 1;
+    //       console.log(rows[0].title);
+    //       res.status = 200;
+    //       res.render("influence.ejs",{toUpdate : useInfluenceToUpdate, title : rows[0].title, category : rows[0].category, blogContent : rows[0].blogContent, blogId : rows[0].id});
+    //     }
+    //   },
+    // )
+
+    // mySqlConnection.query(
+    //   "SELECT * FROM blogs WHERE id = ? AND authorName = ?",
+    //   [req.params.blogId, req.session.user],
+    //   (err, rows) => {
+    //     if (err) {res.status(500).send(err)}
+    //     else{
+    //       if (!rows.length) {
+    //         console.log("number of rows are " + rows.length);
+    //       }
+    //       else {
+    //         console.log("query excuted")
+    //         var useInfluenceToUpdate = 1
+    //         console.log(rows[0].title)
+    //         res.status = 200
+    //         res.render("edit",{toUpdate: 0})
+    //       }
+    //     }
+    //   }
+    // )
   } else {
       res.redirect("/signin?login+first");
+  }
+})
+
+router.post("/update/:blogId", (req, res) => {
+  if (req.session.user) {
+    const category = req.body.category;
+    const title = req.body.blogTitle;
+    const blogContent = req.body.blogContent;
+
+    mySqlConnection.query(
+      "SELECT * FROM blogs WHERE id = ? AND authorName = ?",
+      [req.params.blogId, req.session.user],
+      (err, rows) => {
+        if (err) res.status(500).send(err)
+        if (!rows.length) {
+        res.status = 401;
+        res.send("this blog does not exists");
+      }
+        else {
+          mySqlConnection.query(
+            "UPDATE blogs SET category=?, title=?, blogContent=? WHERE id = ?",
+            [category, title, blogContent, req.params.blogId],
+            (err, rows) => {
+              if (err) res.status(500).send(err)
+              else {
+              res.status = 200
+                res.redirect("/blogs/" + req.params.blogId);
+              }
+            },
+          )
+        }
+      },
+    )
+  } else {
+  res.status = 401;
+  res.redirect("/signin?login+first");
   }
 })
 
