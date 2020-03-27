@@ -16,8 +16,9 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 3600000 }
 }));  
-
-app.use(express.static("public"));
+// I commented below line because due to this when I render infuence.ejs through edit button its css was not working
+// app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 

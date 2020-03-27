@@ -63,7 +63,8 @@ router.get("/blogs/:blogId", function(req, res){
                         res.render("explore", {
                             title: rows[0].title,
                             content: rows[0].blogContent,
-                            user: blog_owner
+                            user: blog_owner,
+                            blogId: rows[0].id
                         })
                         // res.send("hello");
                     // }

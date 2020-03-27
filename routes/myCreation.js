@@ -63,5 +63,23 @@ router.get("/blogs/delete/:blogId", (req, res) => {
     }
   })
 
+router.get("/blogEditProposal/:blogId", (req, res) => {
+  if (req.session.user) {
+    mySqlConnection.query(
+      "SELECT * FROM blogs WHERE id = ? AND authorName = ?",
+      [req.params.blogId,req.session.user],
+      (err) => {
+        if (err) res.status(500).send(err)
+        else {
+          res.status = 200;
+          res.render("influence.ejs",{});
+        }
+      },
+    )
+    
+  } else {
+      res.redirect("/signin?login+first");
+  }
+})
 
 module.exports = router;
