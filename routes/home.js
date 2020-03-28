@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require("path");
 const router = express.Router();
-const mySqlConnection = require("../database/db")
+const mySqlConnection = require("../database/db.js")
 const app = express();
 
 function loggedIn(){
@@ -21,26 +21,32 @@ function loggedIn(){
 router.get("/logout",(req,res)=>{
     if (req.session.user) {
         req.session.destroy(() => {
-        //   res.status(200).send("logout success")
-        res.redirect("/")
+            res.status(200).send("<script>window.location.href = \"/\";alert(\"Succesfully Logged Out\");</script>")
         })
       } else {
         // res.status(400).send("you are not logged in")
-            res.redirect("/signin?login+first")
+            res.send("<script>window.location.href = \"/\";alert(\"You Need to be logged in first\");</script>")
         } 
 })
 
 router.get("/", (req, res) => {
       mySqlConnection.query(
         "SELECT * FROM blogs",
-        (err, rows) => {
+        (err, rows1) => {
           if (err) {res.status(500).send(err)}
           else {
-            res.status = 200
-            if(req.session.user)
-                res.render('homeafter', {blogs : rows})
-            else
-                res.render('homebefore', {blogs : rows})
+            var rand=Math.floor(14*Math.random())+1;
+            mySqlConnection.query("select * from quotes where id = "+rand+";",(err,rows2)=>{
+                res.status = 200
+                if(req.session.user)
+                    res.render('homeafter', {quotes : rows2[0].quote,
+                                            author : rows2[0].author,
+                                            blogs : rows1});
+                else
+                    res.render('homebefore', {quotes : rows2[0].quote,
+                                            author : rows2[0].author,
+                                            blogs : rows1});
+            });
           }
         },
       )
@@ -55,7 +61,7 @@ router.get("/blogs/:blogId", function(req, res){
         "SELECT * from blogs where id = ?", [req.params.blogId],
         (err, rows) => {
             if (err) res.status(500).send(err)
-            else if(rows.length == 0) res.send("blog not found")
+            else if(rows.length == 0) res.send("<script>window.location.href = \"/\";alert(\"No such Blog Exists\");</script>")
             else{
                 var blog_owner;
                 if(req.session.user == rows[0].authorName)
@@ -135,5 +141,26 @@ router.get("/settings",(req,res)=>{
     res.render("settings.ejs",{});
 });
 
+
+router.get("/blogs/category/:category", function(req, res){
+    mySqlConnection.query(
+        "SELECT * from blogs where category = ?", [req.params.category],
+        (err, rows) => {
+            if (err) res.status(500).send(err)
+            else if(rows.length == 0) res.send("<script>window.location.href = \"/\";alert(\"No Blogs on This Category\");</script>")
+            else{
+                if(req.session.user){
+                    res.status = 200
+                    res.render('categoryBlogsAfter', {name : req.params.category,
+                                                blogs : rows})
+                }else{
+                    res.status = 200
+                    res.render('categoryBlogsBefore', {name : req.params.category,
+                                                blogs : rows})
+                }
+            }  
+        },
+        )
+});
 
 module.exports = router;

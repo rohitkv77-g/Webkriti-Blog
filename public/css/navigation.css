@@ -47,6 +47,16 @@ li.dropdown {
   display: block;
 }
 
+.btn {
+  padding: 8px 8px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn:hover {
+  opacity:1;
+}
 
 @media screen and (max-width: 720px) {
 ul li {

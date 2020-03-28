@@ -25,7 +25,8 @@ router.get("/", function(req, res){
             },
             )
     }else{
-        res.redirect("/signin?login+first");
+        res.send("<script>window.location.href = \"/signin\";alert(\"You Need to be logged in first\");</script>");
+        // res.redirect("/signin?login+first");
     }      
 });
 
@@ -40,7 +41,8 @@ router.get("/blogs/delete/:blogId", (req, res) => {
           else if (!rows.length) {
             // console.log("No row");
             res.status = 401;
-            res.redirect('/myCreation');
+            // res.redirect('/myCreation');
+            res.send("<script>window.location.href = \"/mycreation\";alert(\"Not Owner of this Blog\");</script>");
           }
           else {
             mySqlConnection.query(
@@ -51,7 +53,8 @@ router.get("/blogs/delete/:blogId", (req, res) => {
                 else {
                     // console.log("row found");
                   res.status = 200;
-                  res.redirect('/myCreation');
+                  res.send("<script>window.location.href = \"/mycreation\";alert(\"Successfully Deleted the Blog\");</script>");
+                  // res.redirect('/myCreation');
                 }
               },
             )
@@ -59,7 +62,8 @@ router.get("/blogs/delete/:blogId", (req, res) => {
         },
       )
     } else {
-        res.redirect("/signin?login+first");
+        res.send("<script>window.location.href = \"/signin\";alert(\"You Need to be logged in first\");</script>");
+        // res.redirect("/signin?login+first");
     }
   })
 
@@ -120,7 +124,8 @@ router.get("/blogEditProposal/:blogId", (req, res) => {
     //   }
     // )
   } else {
-      res.redirect("/signin?login+first");
+      res.send("<script>window.location.href = \"/signin\";alert(\"You Need to be logged in first\");</script>");
+      // res.redirect("/signin?login+first");
   }
 })
 
@@ -147,7 +152,10 @@ router.post("/update/:blogId", (req, res) => {
               if (err) res.status(500).send(err)
               else {
               res.status = 200
-                res.redirect("/blogs/" + req.params.blogId);
+              var q="<script>window.location.href = \"/blogs/"+req.params.blogId+"\";alert(\"Succesfullu Updated\");</script>";
+              console.log(q);
+              res.send(q);
+                // res.redirect("/blogs/" + req.params.blogId);
               }
             },
           )
@@ -156,7 +164,8 @@ router.post("/update/:blogId", (req, res) => {
     )
   } else {
   res.status = 401;
-  res.redirect("/signin?login+first");
+  res.send("<script>window.location.href = \"/signin\";alert(\"You Need to be logged in first\");</script>");
+  // res.redirect("/signin?login+first");
   }
 })
 

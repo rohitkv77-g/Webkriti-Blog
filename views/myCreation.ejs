@@ -2,7 +2,7 @@
     <%- include("navigationAfter") -%>
 
     <link rel="stylesheet" type="text/css" href="./css/myCreation.css">
-    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/common.css"> -->
     <div class="myCreation"><h1 style="font-family: 'Times New Roman', Times, serif;">MY CREATIONS</h1><hr></div>
 
     <% if(blogs.length != 0){  %>
@@ -12,7 +12,20 @@
                     <em><%= blogs[i].title%></em>
                         <p><%=blogs[i].blogContent.substring(0, 500) + " ..."%></p>
                     <a href="/blogs/<%=blogs[i].id%>"><button class="btn">Explore</button></a>
-                    <a href="myCreation/blogs/delete/<%=blogs[i].id%>"><button class="btn">Delete</button></a>
+                    <button onclick="document.getElementById('id01').style.display='block'" class="btn" >Delete</button>
+
+                    <div id="id01" class="modal">
+                      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                      <form class="modal-content" action="/action_page.php">
+                        <div class="container">
+                          <h1>Are You Sure You Want Delete The Blog</h1>
+                          <div class="clearfix">
+                            <a href="/myCreation"><button type="button" class="cancelbtn">Cancel</button></a>
+                            <a href="myCreation/blogs/delete/<%=blogs[i].id%>"><button type="button" class="deletebtn">Delete</button></a>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
                     <div style="text-align: right;">
                         <em class="authorName" ><%= "~" + blogs[i].authorName%></em>
                     </div>
@@ -23,3 +36,15 @@
     
 </body>
 </html>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>

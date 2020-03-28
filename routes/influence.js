@@ -32,7 +32,8 @@ router.post("/blogPost", (req, res) => {
                 else{
                     console.log("blog is posted");
                     res.status(200)
-                    res.redirect("/myCreation?blog+posted");
+                    res.send("<script>window.location.href = \"/mycreation\";alert(\"Your Blog has been Posted\");</script>")
+                    // res.redirect("/myCreation?blog+posted");
                 }  
             },
             )
@@ -40,7 +41,8 @@ router.post("/blogPost", (req, res) => {
         // const Login_First="<script>alert(\"Login First\")</script>";
         // res.send(Login_First)
         // res.redirect("/signin");
-        res.redirect("/signin?login+first");
+        res.send("<script>window.location.href = \"/signin\";alert(\"You Need to be logged in first\");</script>")
+        // res.redirect("/signin?login+first");
     }
   })
 
