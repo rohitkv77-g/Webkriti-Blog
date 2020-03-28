@@ -21,11 +21,13 @@ function loggedIn(){
 router.get("/logout",(req,res)=>{
     if (req.session.user) {
         req.session.destroy(() => {
-          res.status(200).send("logout success")
+        //   res.status(200).send("logout success")
+        res.redirect("/")
         })
       } else {
-        res.status(400).send("you are not logged in")
-      }
+        // res.status(400).send("you are not logged in")
+            res.redirect("/signin?login+first")
+        } 
 })
 
 router.get("/", (req, res) => {
