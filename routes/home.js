@@ -32,14 +32,21 @@ router.get("/logout",(req,res)=>{
 router.get("/", (req, res) => {
       mySqlConnection.query(
         "SELECT * FROM blogs",
-        (err, rows) => {
+        (err, rows1) => {
           if (err) {res.status(500).send(err)}
           else {
-            res.status = 200
-            if(req.session.user)
-                res.render('homeafter', {blogs : rows})
-            else
-                res.render('homebefore', {blogs : rows})
+            var rand=Math.floor(14*Math.random())+1;
+            mySqlConnection.query("select * from quotes where id = "+rand+";",(err,rows2)=>{
+                res.status = 200
+                if(req.session.user)
+                    res.render('homeafter', {quotes : rows2[0].quote,
+                                            author : rows2[0].author,
+                                            blogs : rows1});
+                else
+                    res.render('homebefore', {quotes : rows2[0].quote,
+                                            author : rows2[0].author,
+                                            blogs : rows1});
+            });
           }
         },
       )
