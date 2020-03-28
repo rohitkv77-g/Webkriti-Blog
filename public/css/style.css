@@ -1,4 +1,4 @@
-button {
+.button {
   background-color: blue;
   color: white;
   padding: 14px 20px;
@@ -8,7 +8,7 @@ button {
   opacity: 0.8;
 }
 
-button:hover {
+.button:hover {
   opacity:1;
 }
 
@@ -24,7 +24,7 @@ button:hover {
   text-align: center;
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 100px;
+  margin-top: 50px;
   font-style: italic;
   color: crimson;
 }
