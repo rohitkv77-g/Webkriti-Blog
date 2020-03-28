@@ -137,7 +137,8 @@ hr {
     font-family: Times New Roman; 
   }
 .authorName{
-    color: rebeccapurple;
+    color: black;
+    font-weight: bolder;
 }
 
 @media screen and (max-width: 640px){

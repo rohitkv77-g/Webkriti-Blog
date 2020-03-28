@@ -13,12 +13,12 @@
 </div>
 
 <%for(var i=0;i<blogs.length;i++){%>
-<div class="flex-container2">   
+<div class="flex-container2"  style = "background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);">   
     <div class="content1">
-            <em><%= blogs[i].title%></em>
+            <em style="font-weight: bolder;"><%= blogs[i].title%></em>
             <p><%=blogs[i].blogContent.substring(0, 500) + " ..."%></p>
             <a href="/blogs/<%=blogs[i].id%>"><button class="button">Explore</button></a>
-            <div style="text-align: right;">
+            <div style="text-align: right;color: black; font-weight: bolder;">
                     <em class="authorName" ><%= "~" + blogs[i].authorName%></em>
             </div>
     </div>

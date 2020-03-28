@@ -120,7 +120,8 @@ background-attachment: fixed;
   margin-right: 20px;
 }
 .authorName{
-  color: rebeccapurple;
+  color: black;
+  font-weight: bolder;
 }
 @media screen and (max-width: 640px){
   #quote{
