@@ -4,3 +4,9 @@ function isLogged(){
     req.send( null );
     return Number(xmlHttp.responseText);
 }
+
+
+function submit_form(){
+    alert("hello");
+    document.getElementById("register1").submit();
+}

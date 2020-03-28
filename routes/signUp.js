@@ -25,51 +25,54 @@ var storage = multer.diskStorage(
     }
 );
 
-const upload = multer({storage: storage});
+const upload = multer({storage: storage}).single("myfile");
 
 var email_taken="<script>alert(\"Email already Taken\")</script>";
-var user_taken="<script>alert(\"Email already Taken\")</script>";
+var user_taken="<script>alert(\"User already Taken\")</script>";
+var pass_not="<script>alert(\"Password do not match\")</script>";
 
-router.post("/register", upload.single("myfile"), (req,res)=>{
-    // console.log(req.file.filename);
-    console.log(req.body);
-    
-    var f_name=req.body.firstName;
-    var l_name=req.body.lastName;
-    var u_name=req.body.userName;
-    var email=req.body.email;
-    var gender=req.body.gender;
-    var p_pic=req.file.filename;
-    var pass=req.body.password;
-    
-    mySqlConnection.query("select * from users where user_name = \""+u_name+"\";",(err,rows)=>{
-        if(err)
-            console.log("username matching error\n"+err);
-        else
-        if(rows.length){
-            res.write(user_taken);
-            res.send();
-            // res.redirect("/signup");
-        }else{
-            mySqlConnection.query("select * from users where email = \""+email+"\";",(err,rows)=>{
+router.post("/register", (req,res)=>{
+    upload(req,res,(err)=>{
+        var f_name=req.body.firstName;
+        var l_name=req.body.lastName;
+        var u_name=req.body.userName;
+        var email=req.body.email;
+        var gender=req.body.gender;
+        var p_pic="temp.pic";
+        if(req.file)
+            p_pic=req.file.filename;
+        var pass=req.body.password;
+        var cnf=req.body.confirm;
+        if(pass != cnf){
+            res.send(pass_not);
+        }
+        else{
+            mySqlConnection.query("select * from users where user_name = \""+u_name+"\";",(err,rows)=>{
                 if(err)
-                    console.log("email matching error\n"+err);
+                    console.log("username matching error\n"+err);
                 else
                 if(rows.length){
-                    res.write(email_taken);
-                    res.send();
-                    // res.redirect("/signup");
+                    res.send(user_taken);
                 }else{
-                    const hash=bcrypt.hashSync(pass,Number(process.env.SALT_ROUND));
-                    var sql = "INSERT INTO users (f_name, l_name, user_name, email, pass, gender, photo) VALUES ("+"\""+f_name+"\",\""+l_name+"\",\""+u_name+"\",\""+email+"\",\""+hash+"\",\""+gender+"\",\""+p_pic+"\");";
-                    mySqlConnection.query(sql,(err,rows)=>{
-                        if(err) console.log(err);
-                        else{
-                            req.session.user=u_name;
-                            console.log("Inserted");
-                            res.redirect("/");
+                    mySqlConnection.query("select * from users where email = \""+email+"\";",(err,rows)=>{
+                        if(err)
+                            console.log("email matching error\n"+err);
+                        else
+                        if(rows.length){
+                            res.send(email_taken);
+                        }else{
+                            const hash=bcrypt.hashSync(pass,Number(process.env.SALT_ROUND));
+                            var sql = "INSERT INTO users (f_name, l_name, user_name, email, pass, gender, photo) VALUES ("+"\""+f_name+"\",\""+l_name+"\",\""+u_name+"\",\""+email+"\",\""+hash+"\",\""+gender+"\",\""+p_pic+"\");";
+                            mySqlConnection.query(sql,(err,rows)=>{
+                                if(err) console.log(err);
+                                else{
+                                    req.session.user=u_name;
+                                    console.log("Inserted\n");
+                                    res.redirect("/");
+                                }
+                            });
                         }
-                    });
+                    })
                 }
             })
         }
