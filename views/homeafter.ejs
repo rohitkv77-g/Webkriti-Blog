@@ -1,0 +1,21 @@
+
+    <%- include("start") -%>
+    <%- include("navigationAfter") -%>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+<%for(var i=0;i<blogs.length;i++){%>
+<div class="flex-container2">   
+    <div class="content1">
+            <em><%= blogs[i].title%></em>
+            <p><%=blogs[i].blogContent.substring(0, 500) + " ..."%></p>
+            <a href="/blogs/<%=blogs[i].id%>"><button>Read More</button></a>
+            <div style="text-align: right;">
+                    <em class="authorName" ><%= "~" + blogs[i].authorName%></em>
+            </div>
+    </div>
+</div>
+<%}%>

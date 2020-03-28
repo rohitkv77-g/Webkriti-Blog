@@ -35,7 +35,10 @@ router.get("/", (req, res) => {
           if (err) {res.status(500).send(err)}
           else {
             res.status = 200
-            res.render('home', {blogs : rows})
+            if(req.session.user)
+                res.render('homeafter', {blogs : rows})
+            else
+                res.render('homebefore', {blogs : rows})
           }
         },
       )
@@ -99,12 +102,6 @@ router.get("/blogs/:blogId", function(req, res){
         //     }    
         // },
         // )
-});
-
-
-router.get('/', (req, res)=>{
-    // res.sendFile(path.dirname(__dirname)+"/html/homePage.html");
-    res.render("home.ejs",{});
 });
 
 router.get("/aboutus",(req,res)=>{
