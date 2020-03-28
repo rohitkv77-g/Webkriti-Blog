@@ -1,6 +1,11 @@
 #logo{
   float: left;
+  opacity: 0.9;
 }
+#logo:hover{
+  opacity: 1;
+}
+
 .nav ul{
 	list-style-type: none;
   	margin: 0;
