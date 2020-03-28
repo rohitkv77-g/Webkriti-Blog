@@ -68,7 +68,7 @@ router.post("/register", (req,res)=>{
                                 else{
                                     req.session.user=u_name;
                                     console.log("Inserted\n");
-                                    res.redirect("/");
+                                    res.send("<script>window.location.href = \"/\";alert(\"Welcome\");</script>");
                                 }
                             });
                         }

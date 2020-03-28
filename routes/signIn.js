@@ -10,7 +10,8 @@ router.get('/', (req, res)=>{
         res.sendFile(path.dirname(__dirname)+"/html/SignIn.html");
     else{
         console.log("logged in");
-        res.redirect("/");
+        res.send("<script>window.location.href = \"/\";alert(\"Already logged in. To log in from another account you need to logout first\");</script>");
+        // res.redirect("/");
     }
 });
 
@@ -30,7 +31,8 @@ router.post("/login", (req,res)=>{
             const result=bcrypt.compareSync(req.body.password,user.pass);
             if(result){
                 req.session.user=req.body.username;
-                res.redirect("/");
+                res.send("<script>window.location.href = \"/\";alert(\"Welcome\");</script>");
+                // res.redirect("/");
             }else{
                 res.send(password_incorrect);
             }
