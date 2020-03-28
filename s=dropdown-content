@@ -1,0 +1,210 @@
+[33mcommit b94bc2f157c8faf8ba7d947ca9b576b6414fd1ed[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: hardik5062000 <hardik5062000@gmail.com>
+Date:   Sat Mar 28 12:36:49 2020 +0530
+
+    Added Categories in nav bar
+
+[33mcommit d65faeb309853fab8c310763e4c5a82079724c8b[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Sat Mar 28 01:03:13 2020 +0530
+
+    database made online just change your .env file
+
+[33mcommit dbbb313c387516b1301882968a2baac231254e21[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Fri Mar 27 20:10:04 2020 +0530
+
+    Now the Blogs can be updated using edit button - on click it renders influence.ejs for updation
+
+[33mcommit 3f8c7587aadcb92b6e348ff9f2bbeec07dc68816[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Fri Mar 27 12:27:29 2020 +0530
+
+    influence is rendering through blogEditProposal through get request
+
+[33mcommit 9720dcf01b6d0cb7e1b20f38ab522d17cabb2437[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Fri Mar 27 04:37:24 2020 +0530
+
+    now blogs can be deleted but edit button is not functional
+
+[33mcommit 3f7385510775b0b20d5638d44f9ffefc46a2430f[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Fri Mar 27 03:47:31 2020 +0530
+
+    explore for MyCreation is working and edit button is shown on the places required but is not functional
+
+[33mcommit 5aa1c8c5f86053c9b4a8447a239618002a7a4f25[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Fri Mar 27 02:43:28 2020 +0530
+
+    in myCreation user can see all his blogs but cannot delete or readmore it
+
+[33mcommit ee6943bebabf0feef769f1ee6789e59034b3b71b[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Thu Mar 26 23:02:30 2020 +0530
+
+    influence backend completed
+
+[33mcommit 77e7b34397ff6073d716ce86e9c517bcd10eb019[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Thu Mar 26 17:13:45 2020 +0530
+
+    influence.ejs and influence.css added and connected
+
+[33mcommit 3ee7b3987f490dff6e60b48f988c1811e673ee77[m
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Thu Mar 26 14:44:27 2020 +0530
+
+    added login signup and logout with session
+
+[33mcommit 41fb5277af7a9fed121742126b9f2e2aa6afc954[m
+Merge: b59b1c7 dc39c6b
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Thu Mar 26 13:44:33 2020 +0530
+
+    Merge branch 'backend-api'
+
+[33mcommit b59b1c7bbd5f94c51e25f1931b567cffdf4cb922[m
+Merge: 23e32c7 55c3c1f
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Wed Mar 25 17:17:12 2020 +0530
+
+    Merge branch 'blog-backend'
+
+[33mcommit 55c3c1f54d8b56b67f505a2dc64f74e12832c51a[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Wed Mar 25 16:56:25 2020 +0530
+
+    database code added ie.database.sql
+
+[33mcommit a89da9d87e52738a2d3166f324e7480357443bc9[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Wed Mar 25 16:47:32 2020 +0530
+
+    problem solved - explore is rendering fine
+
+[33mcommit bd53cfe9e2bb85bfa3a8b9a2ba6b3cd36d085ecf[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Wed Mar 25 14:15:33 2020 +0530
+
+    updated
+
+[33mcommit 8e66fe09e7e836d084ffce12a82b6d46a7f0d4b5[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Wed Mar 25 12:03:27 2020 +0530
+
+    explore from home-page pending
+
+[33mcommit 23e32c785f935c524d39fd11b839af19eca099fe[m
+Author: hardik5062000 <hardik5062000@gmail.com>
+Date:   Wed Mar 25 11:29:59 2020 +0530
+
+    Influence HTML and CSS
+
+[33mcommit dbe692fc67b4d14e0cbaa196702dc659daa357de[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Tue Mar 24 23:34:52 2020 +0530
+
+    homePage showing blogs from datatabase and working(no error but stuck) on explore
+
+[33mcommit c785962431f5c72b81dfcbc5e6b3fce12ef56043[m
+Merge: 05720ae bbd81a9
+Author: hardik5062000 <hardik5062000@gmail.com>
+Date:   Sun Mar 15 03:04:10 2020 +0530
+
+    Merge branch 'master' of https://github.com/rohitkv77-g/Webkriti-Blog
+
+[33mcommit bbd81a99b57db9933df7c4096ca040fe6e0f1717[m
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Sun Mar 15 02:12:17 2020 +0530
+
+    added routing schema
+
+[33mcommit 8f64eb544d3b75160fdd0aa6de70251aa50032ab[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Sun Mar 15 09:40:24 2020 +0530
+
+    my creation(articles) linked
+
+[33mcommit dc39c6b29086a120e1e4f361665054afb9decf1a[m
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Sun Mar 15 00:19:34 2020 +0530
+
+    normal authentication
+
+[33mcommit 05720ae85555161b5fce252791d7570b65d4a199[m
+Merge: 7b05839 8f64eb5
+Author: hardik5062000 <hardik5062000@gmail.com>
+Date:   Sat Mar 14 22:49:54 2020 +0530
+
+    Merge branch 'master' of https://github.com/rohitkv77-g/Webkriti-Blog
+
+[33mcommit 7b05839db434197452b46bfcf88e56589818714b[m
+Author: hardik5062000 <hardik5062000@gmail.com>
+Date:   Sat Mar 14 22:47:58 2020 +0530
+
+    Single nav bar in home.ejs inside views
+
+[33mcommit b9705b8f7b159dd70c9cc4fb5a6ad7ff4b5254c9[m
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Sat Mar 14 22:36:23 2020 +0530
+
+    my-sql added
+
+[33mcommit 3ff8ceeb99957311c8db1f08a86f690b62fd138d[m
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Thu Mar 12 22:33:29 2020 +0530
+
+    added influence nav
+
+[33mcommit cd74e160cb7c17c82d08e427eb57c936cbd6d07f[m
+Merge: 61a8d9b a8263af
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Fri Mar 13 09:12:47 2020 +0530
+
+    merged influence route nav change
+    Merge branch 'master' of https://github.com/rohitkv77-g/Webkriti-Blog
+
+[33mcommit 61a8d9bdc98b71a694e126279a5b48737d27c069[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Fri Mar 13 09:09:20 2020 +0530
+
+    route for influence, navigation condition
+
+[33mcommit a8263af3d2dcbe60b11b969b380e6f4cdcbd88e6[m
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Thu Mar 12 16:03:08 2020 +0530
+
+    signin & singup page added
+
+[33mcommit 43641e0fbe5003701e42c80af651166a8db53747[m
+Merge: c2d1e5f bd75e81
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Thu Mar 12 09:12:54 2020 +0530
+
+    Merge branch 'master' of https://github.com/rohitkv77-g/Webkriti-Blog into branch1
+
+[33mcommit c2d1e5fa3936f21b5316040ae2d5e6c83f758290[m
+Author: Abhishek Singh Chauhan <abhisheksinghchauhan357@gmail.com>
+Date:   Thu Mar 12 09:11:48 2020 +0530
+
+    navigation
+
+[33mcommit bd75e81c141aadfb18194a8a94cc72f61a4e1f55[m
+Author: hardik5062000 <hardik5062000@gmail.com>
+Date:   Wed Mar 11 20:17:03 2020 +0530
+
+    Added html of login and a backup html folder. CSS files are without nav css now. No change in routes. mycreation and influence ejs files added.
+
+[33mcommit 355a9b13a7d00c0b195fb5ae13e6bd7c0c3b561a[m
+Author: Rohit Kumar Verma <rohitkverma77@gmail.com>
+Date:   Wed Mar 11 15:20:08 2020 +0530
+
+    added basic routing
+
+[33mcommit 40af98c2e7a51f9e06193cc42ff710e618f34a03[m
+Author: rohitkv77-g <56078710+rohitkv77-g@users.noreply.github.com>
+Date:   Wed Mar 11 14:26:32 2020 +0530
+
+    Initial commit
