@@ -11,7 +11,7 @@
             <div class="content1">
                 <em><%= blogs[i].title%></em>
                     <p><%=blogs[i].blogContent.substring(0, 500) + " ..."%></p>
-                <a href="/blogs/<%=blogs[i].id%>"><button class="btn">Explore</button></a>
+                <a href="/blogs/<%=blogs[i].id%>"><button class="btn" style="background-color: blue; color: white;">Explore</button></a>
                 <!-- <a href="myCreation/blogs/delete/<%=blogs[i].id%>"><button class="btn">Delete</button></a> -->
                 <div style="text-align: right;">
                     <em class="authorName" ><%= "~" + blogs[i].authorName%></em>
