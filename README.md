@@ -1,2 +1,0 @@
-# Webkriti-Blog
-Webkriti Project
