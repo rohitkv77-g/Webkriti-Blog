@@ -63,12 +63,21 @@ router.get("/blogs/:blogId", function(req, res){
                     // if (rows[j].id == req.params.blogId){
                         // console.log(rows[0])
                         res.status(200)
-                        res.render("explore", {
-                            title: rows[0].title,
-                            content: rows[0].blogContent,
-                            user: blog_owner,
-                            blogId: rows[0].id
-                        })
+                        if(req.session.user){
+                            res.render("exploreafter", {
+                                title: rows[0].title,
+                                content: rows[0].blogContent,
+                                user: blog_owner,
+                                blogId: rows[0].id
+                            })
+                        }else{
+                            res.render("explorebefore", {
+                                title: rows[0].title,
+                                content: rows[0].blogContent,
+                                user: blog_owner,
+                                blogId: rows[0].id
+                            })
+                        }
                         // res.send("hello");
                     // }
                 
@@ -105,7 +114,7 @@ router.get("/blogs/:blogId", function(req, res){
 });
 
 router.get("/aboutus",(req,res)=>{
-    res.render(__dirname+"/html/aboutUs.html");
+    res.sendFile(path.dirname(__dirname)+"/html/aboutUs.html");
 });
 
 router.get("/profile",(req,res)=>{

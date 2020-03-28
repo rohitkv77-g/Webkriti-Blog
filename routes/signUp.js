@@ -6,8 +6,12 @@ const bcrypt = require("bcrypt");
 
 const mySqlConnection = require(path.dirname(__dirname)+"/database/db.js");
 
+
 router.get('/', (req, res)=>{
-    res.sendFile(path.dirname(__dirname)+"/html/SignUp.html");
+    if(req.session.user)
+        res.send("<script>window.location.href = \"/\";alert(\"You are already logged In, You first need to logout\");</script>");
+    else
+        res.sendFile(path.dirname(__dirname)+"/html/SignUp.html");
 });
 
 var storage = multer.diskStorage(

@@ -1,0 +1,73 @@
+
+
+<%-    include("start") -%>
+<%- include("navigationBefore")   -%>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/influence.css">
+
+    <div class="create">
+        <br>
+        <% if(toUpdate){  %>
+            <h1>Go Ahead Update Your Blog</h1>
+        <%    }else { %>
+            <h1>Let's write to influence!</h1>
+        <% } %>
+        <hr>
+    </div>
+
+    <% if(toUpdate){  %>
+        <form method="post" action="/myCreation/update/<%= blogId%>" id="blog">
+    <%    }else { %>
+        <form method="post" action="/influence/blogPost" id="blog">
+    <% } %>
+
+    <div class="blog">
+    <label for="blogTitle"><b>Title:</b></label>
+
+    <% if(toUpdate){  %>
+        <input type="text" id="blogTitle" name="blogTitle" placeholder=<%= title%> required>
+    <%    }else { %>
+        <input type="text" id="blogTitle" name="blogTitle" placeholder="Title of your Blog" required>
+    <% } %>
+
+    <br><br><br>
+    
+    <label for="categories"><b>Choose a Blog Category:</b></label>
+    
+    <select id="categories" name="category" required >
+    <% if(toUpdate){  %>
+        <option value="" disabled selected>Previous Category: <%= category%></option>
+    <% } %>
+    <option value="pet">Pet</option>
+    <option value="food">Food</option>
+    <option value="travel">Travel</option>
+    <option value="technical">Technical</option>
+    <option value="movies">Movies and TV Series</option>
+    <option value="education">Educational</option>
+    <option value="politics">Political</option>
+    <option value="photography">Photography</option>
+    </select>
+    <br><br><br>
+    
+    <% if(toUpdate){  %>
+        <textarea name="blogContent" rows="5" cols="50" required><%= blogContent%></textarea>
+  	<br><br>
+    <%    }else { %>
+        <textarea name="blogContent"  placeholder="What's in your mind..?" rows="5" cols="50" required></textarea>
+  	<br><br>
+    <% } %>
+
+    <div class="buttonBar">
+        <div class="upload-btn-wrapper">
+                <button class="btn">Upload Photo Here</button>
+                <input type="file" name="myfile" accept="image/*">
+            </div><br>
+
+            <input type="submit">
+    </div>
+	</div>
+	</form>
+
+</body>
+</html>

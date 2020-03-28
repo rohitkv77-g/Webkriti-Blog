@@ -9,7 +9,10 @@ const mySqlConnection = require(path.dirname(__dirname)+"/database/db.js");
 // });
 
 router.get("/",(req,res)=>{
-    res.render("influence.ejs",{toUpdate : 0});
+    if(req.session.user)
+        res.render("influenceafter.ejs",{toUpdate : 0});
+    else
+        res.render("influencebefore.ejs",{toUpdate : 0});
 })
 
 router.post("/blogPost", (req, res) => {

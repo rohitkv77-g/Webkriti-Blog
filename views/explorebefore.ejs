@@ -1,0 +1,15 @@
+<%-    include("start") -%>
+<%- include("navigationBefore")   -%>
+
+<link rel="stylesheet" href="/css/explore.css">
+<body>
+    <title>Blog</title>
+    <div class="flex-container">
+    <h1 class="heading"><%=title%></h1><br>
+    <p class="text"><%=content%></p>
+    <% if(user){  %>
+        <a href="/myCreation/blogEditProposal/<%=blogId%>"><button class="editButton" title="Edit"></button></a>
+    <% } %>
+    </div>
+</body>
+</html>
