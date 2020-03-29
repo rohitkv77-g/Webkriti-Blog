@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 
 const app = express();
-// const PORT=3000;
+const PORT=process.env.PORT || 3000;
 // Now in .env file
 
 app.use(session({
@@ -31,6 +31,6 @@ app.use("/signin", require(__dirname+"/routes/signIn.js"));
 app.use("/mycreation", require(__dirname+"/routes/myCreation.js"));
 app.use("/influence", require(__dirname+"/routes/influence.js"));
 
-app.listen(process.env.PORT, ()=>{
-    console.log("Server Started at PORT "+process.env.PORT);
+app.listen(PORT, ()=>{
+    console.log("Server Started at PORT "+PORT);
 }); 
