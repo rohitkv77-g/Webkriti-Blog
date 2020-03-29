@@ -1,0 +1,65 @@
+
+* {
+    box-sizing: border-box;
+  }
+  body{
+    padding: 0px;
+    margin: 0px;
+    background: url('../images/Background1.jpg') no-repeat;
+    height:100%;
+    background-attachment: fixed; 
+    background-position: center;
+    background-size: cover;
+    font-family: 'Times New Roman';
+    font-style: italic;
+}
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .name{
+    color: #f4e194;	
+    text-align: center;
+  }
+  .image{
+    border-radius: 50%;
+  }
+  .create{
+  padding-top: 30px;
+      color: #f4e194;	
+      text-align: center;
+    }
+    
+    .create h1{
+      border-right: .17em solid whitesmoke; /* The typewriter cursor */
+      white-space: nowrap; /* Keeps the content on a single line */
+      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+      overflow: hidden;
+      transition: all 2s ease;
+      animation: 
+        typing 13s steps(100, end),
+        blinking-cursor .5s step-end infinite;
+    }
+    /* The typing effect */
+          @keyframes typing {
+          from { width: 0 }
+          to { width: 100% }
+          }
+          /* The typewriter cursor effect */
+          @keyframes blinking-cursor {
+          from, to { border-color: transparent }
+          100% { border-color: whitesmoke; }
+  }
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 500px) {
+    .column {
+      width: 100%;
+    }
+  }
