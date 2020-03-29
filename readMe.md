@@ -53,5 +53,7 @@ Curious Cat is a Blog Web Site. It is made using Node JS and Express as the Fram
 # SCREENSHOTS
   - https://drive.google.com/open?id=1BR7ZhArHnaV9A1Zy8EMHVxktRQ3Hgdzd
 # VIDEO LINK
+  - https://drive.google.com/open?id=1d_86t9mANTI-S1G3-JOcvv5k-f6F-4kD
+  - https://youtu.be/WfTmbhYsH7Y
 # HOSTED WEBSITE LINK
   - https://stormy-anchorage-99035.herokuapp.com/
